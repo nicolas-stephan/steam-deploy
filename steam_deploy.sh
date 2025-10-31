@@ -212,4 +212,6 @@ steamcmd +login "$steam_username" +run_app_build "$manifest_path" +quit || (
     exit 1
   )
 
+rm -rf BuildOutput
+
 echo "manifest=${manifest_path}" >> $GITHUB_OUTPUT

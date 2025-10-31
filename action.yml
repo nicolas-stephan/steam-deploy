@@ -86,6 +86,12 @@ inputs:
     required: false
     description: 'If set to true, include debug symbols and directories in the upload'
     default: false
+  runAsHostUser:
+    required: false
+    default: 'false'
+    description:
+      'Whether to run as a user that matches the host system or the default root container user. Only applicable to
+      Linux hosts and containers. This is useful for fixing permission errors on Self-Hosted runners.'
 outputs:
   manifest:
     description: "The path to the generated manifest.vdf"
@@ -120,3 +126,4 @@ runs:
     depot9InstallScriptPath: ${{ inputs.depot9InstallScriptPath }}
     releaseBranch: ${{ inputs.releaseBranch }}
     debugBranch: ${{ inputs.debugBranch }}
+    runAsHostUser: ${{ inputs.runAsHostUser }}
